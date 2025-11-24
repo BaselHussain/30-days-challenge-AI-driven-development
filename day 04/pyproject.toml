@@ -1,0 +1,12 @@
+[project]
+name = "pdf-academic-assistant"
+version = "0.1.0"
+description = "A PDF Academic Assistant Agent using OpenAgents SDK + Gemini backend."
+dependencies = [
+    "openagents",
+    "streamlit",
+    "pypdf",
+    "python-dotenv",
+    "openai-agents>=0.6.1",
+]
+requires-python = "==3.11.7"
