@@ -1,17 +1,12 @@
+# tools.py – You can keep this or delete it, doesn't matter anymore
+import io
 import pypdf
-from agents import function_tool
-from typing import Literal
-
-@function_tool
 def extract_pdf_text(file_bytes: bytes) -> str:
-    """
-    Extracts full text from any uploaded PDF.
-    """
-    try:
-        reader = pypdf.PdfReader(file_bytes)
-        text = ""
-        for page in reader.pages:
-            text += page.extract_text()
-        return text
-    except Exception as e:
-        return f"Error extracting text from PDF: {e}"
+    pdf_stream = io.BytesIO(file_bytes)
+    reader = pypdf.PdfReader(pdf_stream)
+    text = ""
+    for page in reader.pages:
+        page_text = page.extract_text()
+        if page_text:
+            text += page_text + "\n"
+    return text.strip()
