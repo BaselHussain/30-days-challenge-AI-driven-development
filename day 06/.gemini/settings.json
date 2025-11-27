@@ -1,8 +1,0 @@
-{
-  "mcp": {
-    "github": {
-      "httpUrl": "https://api.githubcopilot.com/mcp/",
-      "headers": { "Authorization": "Bearer $GITHUB_MCP_PATH" }
-    }
-  }
-}
